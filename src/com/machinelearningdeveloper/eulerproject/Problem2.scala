@@ -18,7 +18,7 @@ object Problem2 extends App {
     *  
     *    def fibonacci(n: Int): Int =
     *      if (n == 0 || n == 1)
-    *        1
+    *        n
     *      else
     *        fibonacci(n - 2) + fibonacci(n - 1)
     *
@@ -31,11 +31,11 @@ object Problem2 extends App {
     if (n < 0) sys.error(s"negative number ($n)")
     
     @scala.annotation.tailrec
-    def accumulateSum(iters: Int = 1, acc: Fibonacci = 1, previous: Fibonacci = 1): Fibonacci =
-      if (iters >= n)
+    def accumulateSum(i: Int = 0, acc: Int = 0, previous: Int = 0): Int =
+      if (i == n)
         acc
       else
-        accumulateSum(iters + 1, acc + previous, acc)
+        accumulateSum(i + 1, if (acc + previous == 0) 1 else acc + previous, acc)
     accumulateSum()
   }
       
