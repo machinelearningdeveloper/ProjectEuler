@@ -11,7 +11,7 @@ object Problem2 extends App {
   type Fibonacci = Int
   type Fibonaccis = Vector[Fibonacci]
   
-  println(fibonaccis(4000000) filter(_ % 2 ==0) sum)
+  println(fibonaccis(4000000) filter(_ % 2 == 0) sum)
   
   /** The canonical formulation of the fibonacci sequence looks
     * something like the following:
