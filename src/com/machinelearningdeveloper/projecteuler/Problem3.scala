@@ -1,4 +1,4 @@
-package com.machinelearningdeveloper.eulerproject
+package com.machinelearningdeveloper.projecteuler
 
 /** Problem 3 http://projecteuler.net/problem=3
   * "What is the largest prime factor of the number 600851475143?"

@@ -1,4 +1,4 @@
-package com.machinelearningdeveloper.eulerproject
+package com.machinelearningdeveloper.projecteuler
 
 /** Problem 2 http://projecteuler.net/problem=2
   *  
