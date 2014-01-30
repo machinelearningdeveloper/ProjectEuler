@@ -2,7 +2,7 @@ package com.machinelearningdeveloper.projecteuler
 
 /** Problem 4 http://projecteuler.net/problem=7
   *  
-  * "What is the 10 001st prime number?
+  * "What is the 10 001st prime number?"
   */
 
 /** The solution to problem 3 can be used to test primality:
