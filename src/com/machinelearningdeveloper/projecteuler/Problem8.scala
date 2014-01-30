@@ -1,5 +1,5 @@
 package com.machinelearningdeveloper.projecteuler
-/** Problem 4 http://projecteuler.net/problem=8
+/** Problem 8 http://projecteuler.net/problem=8
   *  
   * "Find the greatest product of five consecutive digits in the 1000-digit number."
   * 

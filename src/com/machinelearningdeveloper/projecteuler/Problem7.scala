@@ -1,6 +1,6 @@
 package com.machinelearningdeveloper.projecteuler
 
-/** Problem 4 http://projecteuler.net/problem=7
+/** Problem 7 http://projecteuler.net/problem=7
   *  
   * "What is the 10 001st prime number?"
   */
