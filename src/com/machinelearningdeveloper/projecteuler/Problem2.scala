@@ -7,6 +7,8 @@ package com.machinelearningdeveloper.projecteuler
   * even-valued terms."
   */
 
+import language.postfixOps
+
 object Problem2 extends App {
   type Fibonacci = Int
   type Fibonaccis = Vector[Fibonacci]

@@ -5,6 +5,8 @@ package com.machinelearningdeveloper.projecteuler
   * Find the product abc."
   */
 
+import language.postfixOps
+
 object Problem9 extends App {
   val goalValue = 1000
   val triplet = tripletsEqualToSum(pythagoreanTriplets(goalValue), goalValue).head

@@ -6,6 +6,8 @@ package com.machinelearningdeveloper.projecteuler
   * first one hundred natural numbers and the square of the sum."
   */
 
+import language.postfixOps
+
 object Project6 extends App {
   
   println(squareOfSumMinusSumOfSquares(100))

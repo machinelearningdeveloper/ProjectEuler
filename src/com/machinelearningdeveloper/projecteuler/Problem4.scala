@@ -5,6 +5,8 @@ package com.machinelearningdeveloper.projecteuler
   * "Find the largest palindrome made from the product of two 3-digit numbers."
   */
 
+import language.postfixOps
+
 object Problem4 extends App {
   type Products = Vector[Int]
 

@@ -5,6 +5,8 @@ package com.machinelearningdeveloper.projecteuler
   * "What is the 10 001st prime number?"
   */
 
+import language.postfixOps
+
 /** The solution to problem 3 can be used to test primality:
  *  largestFactor tries to find the largest factor of n
  *  such that the factor is less than n, otherwise

@@ -25,6 +25,8 @@ package com.machinelearningdeveloper.projecteuler
   * 71636269561882670428252483600823257530420752963450
   */
 
+import language.postfixOps
+
 object Problem8 extends App {
   val digits = """
 73167176531330624919225119674426574742355349194934
