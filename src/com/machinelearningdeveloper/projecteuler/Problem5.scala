@@ -9,7 +9,7 @@ package com.machinelearningdeveloper.projecteuler
 object Problem5 extends App {
   println(findLeastCommonMultiple(20))
 
-  def findLeastCommonMultiple(upToNumber: Long, currentStep: Int = 0): Long = {
+  def findLeastCommonMultiple(upToNumber: Long): Long = {
     if (upToNumber <= 0) sys.error(s"upToNumber ($upToNumber) must be positive")
     @scala.annotation.tailrec
     def stepThroughMultiples(multiple: Long, divisor: Long = 2): Long = {
