@@ -6,9 +6,11 @@ package com.machinelearningdeveloper.projecteuler
 
 object Problem12 extends App {
   val goal = 500
-  val idx = triangles.takeWhile(t => factors(t).size < goal).length
-  println(idx)
-  println(triangles(idx))
+  val timeBefore = System.nanoTime
+  val triangle = triangles.filter(_ % 2 == 0).filter(factorsOfEvenNumber(_).size > goal).head
+  println(triangle)
+  val timeAfter = System.nanoTime
+  println(s"Took ${(timeAfter - timeBefore) / 1000000} ms")
   
   def naturals: Stream[Long] = {
     def naturalAt(n: Long): Stream[Long] = 
@@ -17,15 +19,18 @@ object Problem12 extends App {
   }
   
   def triangles: Stream[Long] = naturals.scanLeft(0L)((acc, value) => acc + value).drop(1)
-  
-  def factors(n: Long) = {
-    def checkFactors(dividend: Long, divisor: Long = 2, factors: Set[Long] = Set(1)): Set[Long] = {
+
+  def factorsOfEvenNumber(number: Long) = {
+    assert(number % 2 == 0, s"number ($number) is not even")
+    def checkFactors(dividend: Long, divisor: Long = 3,
+                     factors: Set[Long] = Set(1, 2, number)): Set[Long] = {
       val quotient = dividend / divisor
       if (divisor > Math.sqrt(dividend))
-        factors + dividend
+        factors
       else
-        checkFactors(dividend, divisor + 1, factors ++ (if (dividend % divisor == 0) Set(divisor, quotient) else Set.empty))
+        checkFactors(dividend, divisor + 1, factors ++
+                     (if (dividend % divisor == 0) Set(divisor, quotient) else Set.empty))
     }
-    checkFactors(n)
+    checkFactors(number)
   }
 }
