@@ -31,8 +31,7 @@ package com.machinelearningdeveloper.projecteuler
 import language.postfixOps
 
 object Problem11 extends App {
-  type Quadruple = (Int, Int, Int, Int)
-  
+  val digit = """(\d)""".r
   val grid = """
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 
@@ -54,7 +53,10 @@ object Problem11 extends App {
 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16 
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
-""" filter(_ != '\n')
+""" filter(_.toString match {
+  case digit(d) => true
+  case otherwise => false
+})
 
   val m = buildMatrixFromString(grid)
   val ls = horizontalLines(m) ++ verticalLines(m) ++ leftLeaningLines(m) ++ rightLeaningLines(m)
@@ -71,9 +73,9 @@ object Problem11 extends App {
   
   def verticalLines(matrix: Vector[Int])     = lines(matrix, 20) // Vertical gap in index values = 20
   
-  def leftLeaningLines(matrix: Vector[Int])  = lines(matrix, 19) // Left lean gap in index values = 19
+  def leftLeaningLines(matrix: Vector[Int])  = lines(matrix, 21) // Left lean gap in index values = 21
   
-  def rightLeaningLines(matrix: Vector[Int]) = lines(matrix, 21) // Right lean gap in index values = 21 
+  def rightLeaningLines(matrix: Vector[Int]) = lines(matrix, 19) // Right lean gap in index values = 19 
   
   def lines(matrix: Vector[Int], indexGap: Int) = {
     for {
@@ -86,7 +88,7 @@ object Problem11 extends App {
   
   def buildMatrixFromString(grid: String): Vector[Int] = {
     for {
-      i <- 0 until grid.length by 3
+      i <- 0 until grid.length by 2
       j = i + 1
     } yield grid(i).asDigit * 10 + grid(j).asDigit
   } toVector
