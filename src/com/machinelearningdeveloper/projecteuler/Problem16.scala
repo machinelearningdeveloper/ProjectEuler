@@ -5,7 +5,7 @@ package com.machinelearningdeveloper.projecteuler
   */
 
 object Problem16 extends App {
-  println(powersOfTwo(1000).toString.map(_.asDigit).sum )
+  println(powersOfTwo(1000).toString.map(_.asDigit).sum)
   
   @scala.annotation.tailrec
   def powersOfTwo(exponent: Int = 0, answer: BigInt = 2): BigInt = {
