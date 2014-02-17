@@ -52,6 +52,7 @@ object Problem18 extends App {
   val bestPath = walkPaths
   println(s"Best path: $bestPath (path cost: ${bestPath.cost})")
 
+  @scala.annotation.tailrec
   def walkPaths: Path = {
     val path = queue.dequeue
     enqueueNextPaths(path)
