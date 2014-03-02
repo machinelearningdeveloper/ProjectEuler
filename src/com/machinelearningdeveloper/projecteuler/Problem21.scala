@@ -12,7 +12,7 @@ object Problem21 extends App {
     val sqrt = math.sqrt(n)
     val step = if (n % 2 == 0) 1 else 2
     @scala.annotation.tailrec
-    def buildDivisors(divisor: Int = 2, divisors: Set[Int] = Set(1)): Set[Int] =
+    def buildDivisors(divisor: Int = 1 + step, divisors: Set[Int] = Set(1)): Set[Int] =
       if (divisor > sqrt)
         divisors
       else if (n % divisor == 0)
