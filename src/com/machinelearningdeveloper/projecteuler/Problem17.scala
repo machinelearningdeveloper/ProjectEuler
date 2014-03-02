@@ -7,23 +7,26 @@ package com.machinelearningdeveloper.projecteuler
 object Problem17 extends App {
   val divisors = Vector(1e9, 1e6, 1e3, 1e0).map { _.toInt }
   val magnitudes = Vector("billion", "million", "thousand")
-  val numbers = Vector("one", "two", "three", "four", "five", "six", "seven",
+  val numbers = Vector("zero", "one", "two", "three", "four", "five", "six", "seven",
                        "eight", "nine", "ten", "eleven", "twelve", "thirteen",
                        "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
                        "nineteen", "twenty", "thirty", "forty", "fifty", "sixty",
                        "seventy", "eighty", "ninety")
   val letter = """(\w)""".r
-
+  
   println((1 to 1000).map(convert(_)).map(_.filter(_.toString match {
       case letter(l) => true
       case otherwise => false
     }).length).sum)
   
   def convert(n: Int) =
-    (if ((n & (1 << 31)) != 0) "negative " else "") +
-    (numberComponents(n).map(hundredsAndRemainder(_)).zipWithIndex.filter(_._1.length > 0).map {
-      t => if (t._1.length > 0 && t._2 < magnitudes.length) Vector(t._1, magnitudes(t._2)).mkString(" ") else t._1 
-    }).mkString(" ")
+    if (n == 0)
+      numbers(n)
+    else
+      (if ((n & (1 << 31)) != 0) "negative " else "") +
+      (numberComponents(n).map(hundredsAndRemainder(_)).zipWithIndex.filter(_._1.length > 0).map {
+        t => if (t._1.length > 0 && t._2 < magnitudes.length) Vector(t._1, magnitudes(t._2)).mkString(" ") else t._1 
+      }).mkString(" ")
                        
   @scala.annotation.tailrec
   def numberComponents(n: Int, components: Vector[Int] = Vector.empty): Vector[Int] = {
@@ -49,10 +52,10 @@ object Problem17 extends App {
   def remainder(n: Int): Vector[String] = {
     val tens = n % 100
     val ones = n % 10
-    val remainderString = if (tens >= 20) s"${numbers(19 + (tens / 10 - 2))}" +
-                   (if (ones > 0) s"-${numbers(ones - 1)}" else "")
-    else if (tens >= 10) s"${numbers(tens - 1)}" 
-    else if (ones > 0) s"${numbers(ones - 1)}"
+    val remainderString = if (tens >= 20) s"${numbers(19 + (tens / 10 - 1))}" +
+                   (if (ones > 0) s"-${numbers(ones)}" else "")
+    else if (tens >= 10) s"${numbers(tens)}" 
+    else if (ones > 0) s"${numbers(ones)}"
     else ""
     if (remainderString.length > 0) Vector(remainderString) else Vector.empty
   }
