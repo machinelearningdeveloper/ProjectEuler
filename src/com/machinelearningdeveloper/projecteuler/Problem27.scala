@@ -51,6 +51,7 @@ object Problem27 extends App {
   
   def checkForPrimality(n: Int): Boolean = {
     val sqrtN = math.sqrt(n)
+    @scala.annotation.tailrec
     def checkDivisors(divisor: Int = 3): Boolean =
       if (divisor > sqrtN)
         true
