@@ -6,7 +6,7 @@ package com.machinelearningdeveloper.projecteuler
 
 object Problem30 extends App {
   val places = 5
-  val loBound = math.pow(1, places).toLong + math.pow(2, places).toLong
+  val loBound = 1 + math.pow(2, places).toLong
   val hiBound = calculateHiBound(places)
   
   println(nsEqualToSumsOfPowersOfDigits(loBound, hiBound, places).sum)
