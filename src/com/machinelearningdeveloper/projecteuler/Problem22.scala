@@ -1,6 +1,6 @@
 package com.machinelearningdeveloper.projecteuler
 
-/** Problem 23 http://projecteuler.net/problem=22
+/** Problem 22 http://projecteuler.net/problem=22
   * "What is the total of all the name scores in the file [resources/names.txt]?"
   */
 
