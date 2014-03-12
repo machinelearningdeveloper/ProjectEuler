@@ -5,7 +5,7 @@ package com.machinelearningdeveloper.projecteuler
   */
 
 object Problem31 extends App {
-  println(s"There are ${countCoinCombinations(200, Vector(100, 50))} different combinations of coins that add up to 2 pounds.")
+  println(s"There are ${countCoinCombinations(200, Vector(1, 2, 5, 10, 20, 50, 100, 200))} different combinations of coins that add up to 2 pounds.")
   
   def countCoinCombinations(targetSum: Int, denominations: Vector[Int], sum: Int = 0): Int = {
     if (targetSum == 0)
